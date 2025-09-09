@@ -9,12 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-dark: #0a0a0a; /* Deep charcoal/black */
+            --primary-dark: #0a0a0a;
             --secondary-dark: #1a1a1a;
-            --accent-green: #5eead4; /* Similar to Olivine's accent color */
+            --accent-green: #5eead4;
             --text-light: #ffffff;
             --text-muted: #a0a0a0;
             --border-color: #333333;
+            --pain-color-subtle: rgba(220, 53, 69, 0.1);
+            --solution-color-subtle: rgba(94, 234, 212, 0.1);
         }
 
         body {
@@ -104,7 +106,7 @@
             background: radial-gradient(circle at center, rgba(94, 234, 212, 0.15) 0%, rgba(10, 10, 10, 0) 70%);
             transform: translate(-50%, -50%);
             border-radius: 50%;
-            filter: blur(80px); /* Soften the gradient edges */
+            filter: blur(80px);
             animation: pulseEffect 8s infinite alternate ease-in-out;
         }
 
@@ -137,6 +139,23 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        .hero .cta-button {
+            background-color: var(--accent-green);
+            color: var(--primary-dark);
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(94, 234, 212, 0.3);
+        }
+
+        .hero .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(94, 234, 212, 0.4);
+        }
         
         /* General Section Styling */
         .section {
@@ -146,7 +165,11 @@
             border-top: 1px solid var(--border-color);
         }
 
-        .section:nth-child(even) { /* Alternate background for sections */
+        .section:first-of-type { /* No top border for the first section */
+            border-top: none;
+        }
+        
+        .section.darker {
             background-color: var(--primary-dark);
         }
 
@@ -197,6 +220,40 @@
             font-size: 1.1rem;
         }
 
+        /* NEW: Transformation Section Styling */
+        .transformation-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            text-align: left;
+        }
+        .transformation-column {
+            flex: 1;
+            max-width: 500px;
+            padding: 2rem;
+            border-radius: 12px;
+        }
+        .transformation-column h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        .transformation-column p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+        .before-column {
+            background-color: var(--pain-color-subtle);
+            border: 1px solid #dc3545;
+        }
+        .before-column h3 { color: #dc3545; }
+        .after-column {
+            background-color: var(--solution-color-subtle);
+            border: 1px solid var(--accent-green);
+        }
+        .after-column h3 { color: var(--accent-green); }
+
         /* Footer */
         footer {
             background-color: #000;
@@ -218,6 +275,11 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 900px) {
+            .transformation-container {
+                flex-direction: column;
+            }
+        }
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.8rem;
@@ -230,9 +292,10 @@
             }
             header {
                 flex-direction: column;
-                padding: 1rem 2rem;
+                padding: 1rem;
                 position: relative;
                 width: auto;
+                background-color: var(--primary-dark);
             }
             nav {
                 margin-top: 1rem;
@@ -287,18 +350,18 @@
     </section>
 
     <main>
-        <section id="problem" class="section">
+        <section id="problem" class="section darker">
             <div class="container">
                 <h2 class="section-headline">Are You the Bottleneck in Your Own Growth?</h2>
                 <p class="section-subheadline">
-                    As a successful agency founder, your time is your most valuable asset. Yet, you're likely spending 10-20 hours every week on manual, non-billable sales tasks: chasing new leads, endless back-and-forth scheduling, and personally qualifying prospects. This chaotic process doesn't just cost you time—it costs you money in the form of high-value leads who slip through the cracks due to slow response times.
+                    As a successful agency founder, your time is your most valuable asset. Yet, you're spending 10-20 hours every week on manual, non-billable sales tasks. This chaotic process costs you a lot of time and money losing high-value leads that leaks.
                 </p>
             </div>
         </section>
 
         <section id="solution" class="section">
             <div class="container">
-                <h2 class="section-headline">We Install 3 Strategic Assets Directly Into Your Business</h2>
+                <h2 class="section-headline">We Install 3 Strategic Assets Into Your Business</h2>
                 <div class="assets-grid">
                     <div class="asset-card">
                         <h3>The "Speed to Lead" System</h3>
@@ -316,13 +379,19 @@
             </div>
         </section>
 
-        <section id="transformation" class="section">
+        <section id="transformation" class="section darker">
             <div class="container">
-                <h2 class="section-headline">From Stressed "Super-Freelancer" to Calm "Agency CEO"</h2>
-                <p class="section-subheadline">
-                    <b>Before:</b> Your day is a whirlwind of reactive tasks, constantly haunted by the deals you know you're losing simply because you're too busy. Your growth feels chaotic and unsustainable.<br><br>
-                    <b>After:</b> Your day is calm and focused. A silent, hyper-efficient engine runs in the background, and your calendar is steadily filled with a predictable stream of highly qualified, sales-ready prospects.
-                </p>
+                <h2 class="section-headline">From Stressed "Everything-Man" to Calm "Agency CEO"</h2>
+                <div class="transformation-container">
+                    <div class="transformation-column before-column">
+                        <h3>Before</h3>
+                        <p>Your day is ruled by reactive tasks, constantly haunted by the deals you know you're losing simply because you're too busy. Your growth feels chaotic and unsustainable.</p>
+                    </div>
+                    <div class="transformation-column after-column">
+                        <h3>After</h3>
+                        <p>Your day is calm and focused. A silent, hyper-efficient engine runs in the background, and your calendar is steadily filled with a predictable stream of highly qualified, sales-ready prospects.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
