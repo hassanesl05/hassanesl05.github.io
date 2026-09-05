@@ -3,33 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm Flow - Agency Pipeline Accelerator</title>
+    <title>ConfirmFlow — Instant Lead Response &amp; Customer Engagement</title>
+    <meta name="description" content="ConfirmFlow LLC installs an AI-powered system that responds to your inbound leads within seconds by text and voice, qualifies them, and books appointments — so no inquiry goes cold.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-dark: #0a0a0a;
-            --secondary-dark: #1a1a1a;
+            --secondary-dark: #151515;
             --accent-green: #5eead4;
             --text-light: #ffffff;
             --text-muted: #a0a0a0;
-            --border-color: #333333;
-            --pain-color-subtle: rgba(220, 53, 69, 0.1);
-            --solution-color-subtle: rgba(94, 234, 212, 0.1);
+            --border-color: #2a2a2a;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             background-color: var(--primary-dark);
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.65;
             overflow-x: hidden;
         }
 
+        a { color: inherit; }
+
         .container {
-            max-width: 1200px;
+            max-width: 1120px;
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -41,462 +44,383 @@
             align-items: center;
             padding: 1.5rem 2rem;
             position: absolute;
-            width: calc(100% - 4rem);
+            width: 100%;
             top: 0;
             left: 0;
             z-index: 100;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 800;
             color: var(--text-light);
             text-decoration: none;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
+        .logo span { color: var(--accent-green); }
 
         nav a {
             color: var(--text-light);
             text-decoration: none;
             font-weight: 500;
             margin-left: 2rem;
+            font-size: 0.98rem;
             transition: color 0.3s ease;
         }
+        nav a:hover { color: var(--accent-green); }
 
-        nav a:hover {
-            color: var(--accent-green);
-        }
-
-        .contact-button {
-            background-color: transparent;
-            color: var(--text-light);
+        .nav-cta {
             border: 1px solid var(--accent-green);
-            padding: 0.7rem 1.5rem;
+            padding: 0.6rem 1.3rem;
             border-radius: 50px;
-            text-decoration: none;
             font-weight: 600;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-
-        .contact-button:hover {
+        .nav-cta:hover {
             background-color: var(--accent-green);
             color: var(--primary-dark);
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             position: relative;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             overflow: hidden;
-            background-color: var(--primary-dark);
         }
 
-        .hero-background-effect {
+        .hero-glow {
             position: absolute;
-            top: 50%;
+            top: 45%;
             left: 50%;
             width: 80vw;
             height: 80vw;
             min-width: 600px;
             min-height: 600px;
-            background: radial-gradient(circle at center, rgba(94, 234, 212, 0.15) 0%, rgba(10, 10, 10, 0) 70%);
+            background: radial-gradient(circle at center, rgba(94, 234, 212, 0.16) 0%, rgba(10, 10, 10, 0) 68%);
             transform: translate(-50%, -50%);
-            border-radius: 50%;
-            filter: blur(80px);
-            animation: pulseEffect 8s infinite alternate ease-in-out;
+            filter: blur(70px);
+            animation: pulseGlow 9s infinite alternate ease-in-out;
         }
-
-        @keyframes pulseEffect {
-            0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.7; }
-            100% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.9; }
+        @keyframes pulseGlow {
+            0%   { transform: translate(-50%, -50%) scale(0.95); opacity: 0.7; }
+            100% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
         }
 
         .hero-content {
             position: relative;
             z-index: 10;
-            max-width: 900px;
-            padding: 0 1rem;
+            max-width: 860px;
+            padding: 6rem 1rem 2rem;
         }
-
         .hero h1 {
-            font-size: 4rem;
+            font-size: clamp(2.2rem, 5.5vw, 4rem);
             font-weight: 900;
-            margin: 0 0 1.5rem 0;
-            line-height: 1.1;
-            color: var(--text-light);
+            margin: 0 0 1.5rem;
+            line-height: 1.08;
         }
-
         .hero p {
-            font-size: 1.4rem;
+            font-size: clamp(1.05rem, 2vw, 1.35rem);
             font-weight: 400;
             color: var(--text-muted);
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 2.75rem;
+            max-width: 640px;
         }
-
-        .hero .cta-button {
+        .cta-button {
+            display: inline-block;
             background-color: var(--accent-green);
             color: var(--primary-dark);
-            padding: 1.2rem 3rem;
-            font-size: 1.2rem;
+            padding: 1.1rem 2.75rem;
+            font-size: 1.1rem;
             font-weight: 700;
             text-decoration: none;
-            border-radius: 5px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 20px rgba(94, 234, 212, 0.3);
+            border-radius: 6px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 4px 24px rgba(94, 234, 212, 0.28);
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 34px rgba(94, 234, 212, 0.4);
         }
 
-        .hero .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(94, 234, 212, 0.4);
-        }
-        
-        /* General Section Styling */
+        /* Sections */
         .section {
             padding: 6rem 0;
-            text-align: center;
-            background-color: var(--secondary-dark);
             border-top: 1px solid var(--border-color);
         }
+        .section.darker { background-color: var(--secondary-dark); }
 
-        .section:first-of-type { /* No top border for the first section */
-            border-top: none;
+        .section-head {
+            max-width: 760px;
+            margin: 0 auto 3.5rem;
+            text-align: center;
         }
-        
-        .section.darker {
-            background-color: var(--primary-dark);
-        }
-
-        .section-headline {
-            font-size: 3rem;
+        .section-head h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.75rem);
             font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: var(--text-light);
+            margin: 0 0 1rem;
         }
-
-        .section-subheadline {
-            font-size: 1.2rem;
+        .section-head p {
+            font-size: 1.15rem;
             color: var(--text-muted);
-            max-width: 800px;
-            margin: 0 auto 3.5rem auto;
+            margin: 0;
         }
 
-        /* Assets Grid */
-        .assets-grid {
+        /* Feature grid */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            text-align: left;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
-
-        .asset-card {
+        .card {
             background-color: var(--primary-dark);
-            padding: 2.5rem;
-            border-radius: 12px;
+            padding: 2.25rem;
+            border-radius: 14px;
             border: 1px solid var(--border-color);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .asset-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-        }
-
-        .asset-card h3 {
-            font-size: 1.7rem;
+        .section.darker .card { background-color: #0f0f0f; }
+        .card h3 {
+            font-size: 1.4rem;
             font-weight: 700;
-            margin-top: 0;
+            margin: 0 0 0.75rem;
             color: var(--accent-green);
         }
-
-        .asset-card p {
+        .card p {
             color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            margin: 0;
         }
 
-        /* NEW: Transformation Section Styling */
-        .transformation-container {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            text-align: left;
+        /* Contact / get started */
+        .contact-inner {
+            max-width: 680px;
+            margin: 0 auto;
+            text-align: center;
         }
-        .transformation-column {
-            flex: 1;
-            max-width: 500px;
-            padding: 2rem;
+        .contact-inner h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 800;
+            margin: 0 0 1rem;
+        }
+        .contact-inner p { color: var(--text-muted); font-size: 1.15rem; }
+        .contact-hint {
+            margin-top: 2rem;
+            padding: 1.25rem 1.5rem;
+            border: 1px solid var(--border-color);
             border-radius: 12px;
+            background: rgba(94, 234, 212, 0.05);
+            color: var(--text-light);
+            font-size: 1rem;
         }
-        .transformation-column h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-top: 0;
-            margin-bottom: 1rem;
-        }
-        .transformation-column p {
-            font-size: 1.1rem;
+
+        /* Consent disclosure */
+        .consent-box {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2rem 2.25rem;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            background-color: var(--primary-dark);
             color: var(--text-muted);
+            font-size: 0.98rem;
         }
-        .before-column {
-            background-color: var(--pain-color-subtle);
-            border: 1px solid #dc3545;
+        .section.darker .consent-box { background-color: #0f0f0f; }
+        .consent-box strong { color: var(--text-light); }
+
+        /* Legal (Privacy / Terms) */
+        .legal { max-width: 820px; margin: 0 auto; }
+        .legal h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            text-align: center;
         }
-        .before-column h3 { color: #dc3545; }
-        .after-column {
-            background-color: var(--solution-color-subtle);
-            border: 1px solid var(--accent-green);
+        .legal .updated {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
         }
-        .after-column h3 { color: var(--accent-green); }
+        .legal h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin: 2.25rem 0 0.75rem;
+        }
+        .legal p, .legal li {
+            color: var(--text-muted);
+            font-size: 1.02rem;
+        }
+        .legal ul { padding-left: 1.25rem; }
 
         /* Footer */
         footer {
             background-color: #000;
-            padding: 3rem 0;
+            padding: 2.5rem 0;
             text-align: center;
             color: var(--text-muted);
             font-size: 0.95rem;
             border-top: 1px solid var(--border-color);
         }
-
         footer a {
             color: var(--text-muted);
             text-decoration: none;
-            margin: 0 0.5rem;
-        }
-
-        footer a:hover {
-            color: var(--text-light);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            .transformation-container {
-                flex-direction: column;
-            }
-        }
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            .hero p {
-                font-size: 1.1rem;
-            }
-            .section-headline {
-                font-size: 2.2rem;
-            }
-            header {
-                flex-direction: column;
-                padding: 1rem;
-                position: relative;
-                width: auto;
-                background-color: var(--primary-dark);
-            }
-            nav {
-                margin-top: 1rem;
-            }
-            nav a {
-                margin: 0 0.8rem;
-                font-size: 0.9rem;
-            }
-            .contact-button {
-                margin-top: 1rem;
-            }
-        }
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-            .section-headline {
-                font-size: 1.8rem;
-            }
-            .assets-grid {
-                grid-template-columns: 1fr;
-            }
-            .asset-card {
-                padding: 1.5rem;
-            }
-        }
-
-        /* NEW: Modal Form Styling */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 200; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0,0,0,0.7);
-            animation: fadeIn 0.5s;
-        }
-
-        .modal-content {
-            background-color: var(--secondary-dark);
-            margin: 10% auto;
-            padding: 40px;
-            border: 1px solid var(--border-color);
-            width: 80%;
-            max-width: 600px;
-            border-radius: 12px;
-            position: relative;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-        }
-
-        .close-button {
-            color: var(--text-muted);
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            font-size: 28px;
-            font-weight: bold;
+            margin: 0 0.6rem;
             transition: color 0.3s ease;
         }
+        footer a:hover { color: var(--text-light); }
+        .footer-links { margin-bottom: 0.75rem; }
 
-        .close-button:hover,
-        .close-button:focus {
-            color: var(--text-light);
-            text-decoration: none;
-            cursor: pointer;
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1.25rem;
+                position: relative;
+                background-color: var(--primary-dark);
+            }
+            nav a { margin: 0 0.6rem; }
+            .hero-content { padding-top: 2rem; }
+            .section { padding: 4rem 0; }
         }
-
-        .modal-content h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--accent-green);
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--text-light);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--primary-dark);
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            color: var(--text-light);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            box-sizing: border-box; /* Added for better padding handling */
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-submit-button {
-            background-color: var(--accent-green);
-            color: var(--primary-dark);
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 20px rgba(94, 234, 212, 0.3);
-            width: 100%;
-            margin-top: 1rem;
-        }
-
-        .form-submit-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(94, 234, 212, 0.4);
-        }
-
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
+        @media (prefers-reduced-motion: reduce) {
+            .hero-glow { animation: none; }
+            .cta-button { transition: none; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#" class="logo">CONFIRM FLOW</a>
+        <a href="#top" class="logo">CONFIRM<span>FLOW</span></a>
         <nav>
-            <a href="#problem">Problem</a>
-            <a href="#solution">Solution</a>
-            <a href="#transformation">Transformation</a>
-            <a href="#contact" id="openModalBtnHeader" class="contact-button">Contact Us</a>
+            <a href="#what">What we do</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#terms">Terms</a>
+            <a href="#contact" class="nav-cta">Get started</a>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-background-effect"></div>
+    <section class="hero" id="top">
+        <div class="hero-glow"></div>
         <div class="hero-content">
-            <h1>Stop Leaking Leads. Start Scaling Your Agency.</h1>
-            <p>The Agency Pipeline Accelerator, a fully managed service installing a predictable, AI Powered sales pipeline into your business, freeing you to be a CEO again.</p>
-            <a href="#contact" id="openModalBtnHero" class="cta-button">Book a Discovery Call</a>
+            <h1>Never let another lead go cold.</h1>
+            <p>ConfirmFlow installs an AI-powered system that replies to your inbound leads within seconds, qualifies them by text and voice, and books them straight onto your calendar.</p>
+            <a href="#contact" class="cta-button">Get started</a>
         </div>
     </section>
 
     <main>
-        <section id="problem" class="section darker">
+        <section id="what" class="section darker">
             <div class="container">
-                <h2 class="section-headline">Are You the Bottleneck in Your Own Growth?</h2>
-                <p class="section-subheadline">
-                    As a successful agency founder, your time is your most valuable asset. Yet, you're spending 10-20 hours every week on manual, non-billable sales tasks. This chaotic process costs you a lot of time and money losing high-value leads that leaks.
-                </p>
-            </div>
-        </section>
-
-        <section id="solution" class="section">
-            <div class="container">
-                <h2 class="section-headline">We Install 3 Strategic Assets Into Your Business</h2>
-                <div class="assets-grid">
-                    <div class="asset-card">
-                        <h3>The "Speed to Lead" System</h3>
-                        <p>We install a system that engages every new lead in under two minutes, 24/7. This immediately stops your pipeline from leaking and multiplies the value of your marketing spend.</p>
+                <div class="section-head">
+                    <h2>Speed is the whole game</h2>
+                    <p>You already pay to generate the leads. We make sure not one of them dies waiting for a callback.</p>
+                </div>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Instant response</h3>
+                        <p>Every new inquiry gets a personal text within seconds and a live call within minutes — day or night — so interest never has time to cool.</p>
                     </div>
-                    <div class="asset-card">
-                        <h3>The "Predictable Pipeline" Calendar</h3>
-                        <p>We transform chaotic scheduling into a predictable asset. Our engine qualifies your best leads and books them directly onto your calendar, turning "feast or famine" into a reliable, scalable machine.</p>
+                    <div class="card">
+                        <h3>Qualify &amp; book</h3>
+                        <p>Our system asks the right questions, understands the reply, and books qualified prospects directly onto your calendar without you lifting a finger.</p>
                     </div>
-                    <div class="asset-card">
-                        <h3>The "Founder Leverage" Benefits</h3>
-                        <p>We reclaim 10-20 hours of your personal time every single week. This is a massive strategic asset you can reinvest into closing deals, leading your team, and doing what only you can do.</p>
+                    <div class="card">
+                        <h3>Fully managed</h3>
+                        <p>We run and monitor the whole engine for you and hand your team a briefed, ready-to-work lead — you just show up to the conversation.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="transformation" class="section darker">
+        <section class="section">
             <div class="container">
-                <h2 class="section-headline">From Stressed "Everything-Man" to Calm "Agency CEO"</h2>
-                <div class="transformation-container">
-                    <div class="transformation-column before-column">
-                        <h3>Before</h3>
-                        <p>Your day is ruled by reactive tasks, constantly haunted by the deals you know you're losing simply because you're too busy.</p>
+                <div class="section-head">
+                    <h2>How our messaging works</h2>
+                    <p>Straightforward and consent-based — here is exactly what to expect.</p>
+                </div>
+                <div class="consent-box">
+                    <p>When you reach out through the chat widget on this site and provide your phone number, you are opting in to receive SMS text messages from <strong>ConfirmFlow LLC</strong> — including replies to your inquiry, appointment scheduling and reminders, and occasional related updates.</p>
+                    <p><strong>Message frequency varies.</strong> Message and data rates may apply. You can reply <strong>STOP</strong> at any time to unsubscribe, or <strong>HELP</strong> for assistance. Consent to receive messages is not a condition of any purchase.</p>
+                    <p>We treat your information with care. See our <a href="#privacy" style="color: var(--accent-green);">Privacy Policy</a> and <a href="#terms" style="color: var(--accent-green);">Terms of Service</a> for full details, including how your opt-in data is handled.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section darker">
+            <div class="container">
+                <div class="contact-inner">
+                    <h2>Get in touch</h2>
+                    <p>Have a question or want to see it work? Send us a message and we will get right back to you — usually within minutes.</p>
+                    <div class="contact-hint">
+                        Tap the chat button in the corner of this page to start a conversation. Prefer email? Reach us at <a href="mailto:contact@confirmflow.com" style="color: var(--accent-green);">contact@confirmflow.com</a>.
                     </div>
-                    <div class="transformation-column after-column">
-                        <h3>After</h3>
-                        <p>Your day is calm and focused. A silent, hyper-efficient engine runs in the background, and your calendar is automatically filled with a predictable stream of highly qualified, sales-ready prospects.</p>
-                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="privacy" class="section">
+            <div class="container">
+                <div class="legal">
+                    <h2>Privacy Policy</h2>
+                    <p class="updated">Last updated: September 2026</p>
+
+                    <p>ConfirmFlow LLC ("ConfirmFlow," "we," "us," or "our") respects your privacy. This Privacy Policy explains what information we collect, how we use it, and the choices you have. By using this website or providing your information to us, you agree to this policy.</p>
+
+                    <h3>Information we collect</h3>
+                    <p>We collect information you voluntarily provide to us through our chat widget or by contacting us directly, such as your name, phone number, and email address, along with the content of your messages. We may also collect basic technical information such as your device and browser type through standard web technologies.</p>
+
+                    <h3>How we use your information</h3>
+                    <p>We use your information to respond to your inquiries, provide and improve our services, schedule and confirm appointments, and communicate with you by text, phone, or email about your request. We only contact you in ways you have consented to.</p>
+
+                    <h3>SMS / text messaging</h3>
+                    <p>By providing your mobile number through our chat widget, you consent to receive SMS text messages from ConfirmFlow LLC related to your inquiry, appointment scheduling and reminders, customer care, and occasional related updates. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe at any time; reply HELP for assistance. Consent to receive text messages is not a condition of any purchase.</p>
+                    <p><strong style="color: var(--text-light);">No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</strong> Information sharing with subcontractors in support services, such as customer service, is permitted. All other use case categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
+
+                    <h3>How we share information</h3>
+                    <p>We do not sell your personal information. We may share information with trusted service providers who help us operate our business (for example, communication and scheduling platforms), only to the extent needed to provide our services, and under obligations of confidentiality. We may also disclose information where required by law.</p>
+
+                    <h3>Data retention and security</h3>
+                    <p>We retain your information only as long as necessary to fulfill the purposes described here or as required by law, and we take reasonable measures to protect it against unauthorized access or disclosure.</p>
+
+                    <h3>Your choices</h3>
+                    <p>You may opt out of text messages at any time by replying STOP. You may request access to, correction of, or deletion of your personal information by contacting us at contact@confirmflow.com.</p>
+
+                    <h3>Contact us</h3>
+                    <p>Questions about this policy? Email us at contact@confirmflow.com.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="terms" class="section darker">
+            <div class="container">
+                <div class="legal">
+                    <h2>Terms of Service</h2>
+                    <p class="updated">Last updated: September 2026</p>
+
+                    <p>These Terms of Service ("Terms") govern your use of the ConfirmFlow LLC website and services. By accessing this website or communicating with us, you agree to these Terms.</p>
+
+                    <h3>Our services</h3>
+                    <p>ConfirmFlow LLC provides lead-response, qualification, and appointment-setting services powered by automated systems. We may update, modify, or discontinue any part of our services at any time.</p>
+
+                    <h3>Messaging terms</h3>
+                    <p>By opting in through our chat widget, you agree to receive text messages and calls from ConfirmFlow LLC at the number you provide, including through automated means. Message frequency varies. Message and data rates may apply. Reply STOP to opt out and HELP for help. Consent is not a condition of purchase. Supported carriers are not liable for delayed or undelivered messages.</p>
+
+                    <h3>Acceptable use</h3>
+                    <p>You agree to provide accurate information and to use this website and our services only for lawful purposes. You may not misuse, interfere with, or attempt to gain unauthorized access to our systems.</p>
+
+                    <h3>Intellectual property</h3>
+                    <p>All content on this website, including text, graphics, and branding, is the property of ConfirmFlow LLC and may not be used without our permission.</p>
+
+                    <h3>Disclaimer and limitation of liability</h3>
+                    <p>Our website and services are provided "as is" without warranties of any kind. To the fullest extent permitted by law, ConfirmFlow LLC is not liable for any indirect, incidental, or consequential damages arising from your use of the website or services.</p>
+
+                    <h3>Contact us</h3>
+                    <p>Questions about these Terms? Email us at contact@confirmflow.com.</p>
                 </div>
             </div>
         </section>
@@ -504,72 +428,18 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Confirm Flow, LLC. All Rights Reserved.</p>
-            <p>Contact: <a href="mailto:contact@confirmflow.com">contact@confirmflow.com</a></p>
+            <div class="footer-links">
+                <a href="#what">What we do</a>
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="mailto:contact@confirmflow.com">Contact</a>
+            </div>
+            <p>&copy; 2026 ConfirmFlow, LLC. All rights reserved.</p>
         </div>
     </footer>
 
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2>Book a Discovery Call</h2>
-            <form action="https://formspree.io/f/xovkkrrw" method="POST">
-                <div class="form-group">
-                    <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Your Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number (+XXX):</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="property_address">Property Address:</label>
-                    <input type="text" id="property_address" name="property_address" placeholder="e.g. 123 Main St, Dallas, TX" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Your Message:</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="form-submit-button">Send Request</button>
-            </form>
-        </div>
-    </div>
-    <script>
-        // Get the modal
-        var modal = document.getElementById("contactModal");
+    <!-- GoHighLevel / LeadConnector chat widget — sole SMS opt-in consent mechanism on this site -->
+    <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a9c4c7dba70a028e74620d8" data-source="WEB_USER"></script>
 
-        // Get the buttons that open the modal
-        var btnHeader = document.getElementById("openModalBtnHeader");
-        var btnHero = document.getElementById("openModalBtnHero");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close-button")[0];
-
-        // When the user clicks the button, open the modal 
-        btnHeader.onclick = function(e) {
-            e.preventDefault();
-            modal.style.display = "block";
-        }
-        btnHero.onclick = function(e) {
-            e.preventDefault();
-            modal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
 </body>
 </html>
